@@ -18,4 +18,37 @@ public static class CourseService
             }
         ];
     }
+    public static List<Course> All() => Courses;
+    public static Course? Get(string code) => Courses.FirstOrDefault( c => c.Code == code);
+
+    public static Course? Add(Course course)
+    {
+        var courseExists = Courses.Exists( coursee => coursee.Code == course.Code);
+        
+            if(courseExists) return null;
+            Courses.Add(course);
+
+            return course;
+        
+    }
+
+    public static void Update(Course course)
+    {
+        var index = Courses.FindIndex( coursee => coursee.Code == course.Code);
+        if(index == -1) return ;
+        Courses[index]= course;
+    }
+
+    public static void DeleteTwo (Course course)
+    {
+        var index = Courses.FindIndex(coursee => coursee.Code == course.Code);
+        if(index == -1) return;
+        Courses.RemoveAt(index);
+    }
+
+    public static void Delete(string code){
+        Course? c = Courses.FirstOrDefault(c => c.Code == code);
+        if(c is null) return;
+        Courses.Remove(c);
+    }
 }
