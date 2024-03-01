@@ -38,3 +38,5 @@ Contributions to the Course Manager project are welcome! To contribute, please f
 5. Open a pull request.
 
 Please ensure your code adheres to the project's coding standards and include tests for new features or fixes.
+
+Want to go there.
